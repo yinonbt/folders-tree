@@ -1,3 +1,6 @@
-<p [ngClass]="{'selected': selectedFolder?.id == folder.id}" (click)="onClick()">
-  {{folder.name}}
+<p
+  [ngClass]="{ selected: selectedFolder && selectedFolder?.id == folder.id }"
+  (click)="onClick($event)"
+>
+  {{ folder.name }}
 </p>

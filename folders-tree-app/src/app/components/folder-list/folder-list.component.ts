@@ -7,9 +7,8 @@ import { Folder } from 'src/app/interfaces/folder';
   styleUrls: ['./folder-list.component.scss']
 })
 export class FolderListComponent implements OnInit {
-  @Input() folderList: Folder[];
-  
-  folderSelected: Folder;
+  @Input() folderList: Folder[];  
+  @Input() folderSelected: Folder;
 
   constructor() { }
 
@@ -18,5 +17,5 @@ export class FolderListComponent implements OnInit {
 
   onFolderSelected(folderSelected: Folder) {
     this.folderSelected = folderSelected;
-  }
+  }  
 }

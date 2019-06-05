@@ -16,7 +16,8 @@ export class FolderComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick() {
+  onClick(event: Event) {
+    event.stopPropagation();
     this.folderSelected.emit(this.folder);
   }
 
