@@ -1,0 +1,11 @@
+.container-root {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    app-folders-root {
+        display: flex;
+        flex-direction: column;
+        justify-items: stretch;
+        height: 100%;
+    }
+}
