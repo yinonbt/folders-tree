@@ -25,6 +25,7 @@ export class FoldersRootComponent implements OnInit {
     const newFolderName = this.foldersFormGroup.get('formControlFolderName').value;
     const newFolder:Folder = {id: this.newFolderId, name: newFolderName, folders: []};
     this.folderList.push(newFolder);
+    this.foldersFormGroup.reset();
   }
 
 }
