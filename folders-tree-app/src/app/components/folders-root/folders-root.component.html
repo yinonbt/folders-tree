@@ -1,0 +1,15 @@
+<div class="folder-list-container">
+  <app-folder-list [folderList]="folderList"> </app-folder-list>
+</div>
+<form [formGroup]="foldersFormGroup" (ngSubmit)="addFolder()">
+  <label for="inputFolderName">
+    Folder Name:
+  </label>
+  <input
+    id="inputFolderName"
+    type="text"
+    formControlName="formControlFolderName"
+    [placeholder]="'New Folder Name'"
+  />
+  <button type="submit" [disabled]="foldersFormGroup.invalid">Add</button>
+</form>

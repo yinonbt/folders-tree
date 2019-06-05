@@ -28,3 +28,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 npm install --save-dev @fortawesome/fontawesome-free
+
+<ul>
+    <li *ngFor="let node of node.children">
+      <tree-node  [node]="node"></tree-node>
+    </li>
+  </ul>
