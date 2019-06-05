@@ -9,9 +9,14 @@ import { Folder } from 'src/app/interfaces/folder';
 export class FolderListComponent implements OnInit {
   @Input() folderList: Folder[];
   
+  folderSelected: Folder;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onFolderSelected(folderSelected: Folder) {
+    this.folderSelected = folderSelected;
+  }
 }
