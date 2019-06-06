@@ -1,5 +1,5 @@
 <div class="folder-list-container" (click)="clearSelection()">
-  <app-folder-list [folderList]="folderList"> </app-folder-list>
+  <app-folder-list [folderList]="folderList$ | async"> </app-folder-list>
 </div>
 <form [formGroup]="foldersFormGroup" (ngSubmit)="addFolder()">
   <label for="inputFolderName">

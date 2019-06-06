@@ -4,3 +4,6 @@
 >
   {{ folder.name }}
 </p>
+<div *ngIf="(folderSelected$ | async)?.id == folder.id && folder.folders.length > 0">
+  <app-folder *ngFor="let f of folder.folders" [folder]="f"></app-folder>
+</div>
