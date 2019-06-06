@@ -11,17 +11,22 @@ import { BehaviorSubject } from 'rxjs';
 export class FolderComponent implements OnInit {
   @Input() folder: Folder;
   folderSelected$: BehaviorSubject<Folder>;
-  
+
   constructor(private folderService: FolderService) {
     this.folderSelected$ = folderService.folderSelected$;
-   }
-
-  ngOnInit() {
   }
+
+  ngOnInit() {}
 
   onClick(event: Event) {
     event.stopPropagation();
-    this.folderSelected$.next(this.folder);
+    if (
+      this.folderSelected$.value &&
+      this.folderSelected$.value.id === this.folder.id
+    ) {
+      this.folderSelected$.next(null);
+    } else {
+      this.folderSelected$.next(this.folder);
+    }
   }
-
 }
