@@ -2,8 +2,6 @@
   <p *ngFor="let folder of folderList">
     <app-folder
       [folder]="folder"
-      (folderSelected)="onFolderSelected($event)"
-      [selectedFolder]="folderSelected"
     ></app-folder>
   </p>
 </div>

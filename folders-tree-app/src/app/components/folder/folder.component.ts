@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Folder } from 'src/app/interfaces/folder';
+import { FolderService } from 'src/app/services/folder.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-folder',
@@ -8,17 +10,18 @@ import { Folder } from 'src/app/interfaces/folder';
 })
 export class FolderComponent implements OnInit {
   @Input() folder: Folder;
-  @Input() selectedFolder: Folder;
-  @Output() folderSelected = new EventEmitter<Folder>();
+  folderSelected$: BehaviorSubject<Folder>;
   
-  constructor() { }
+  constructor(private folderService: FolderService) {
+    this.folderSelected$ = folderService.folderSelected$;
+   }
 
   ngOnInit() {
   }
 
   onClick(event: Event) {
     event.stopPropagation();
-    this.folderSelected.emit(this.folder);
+    this.folderSelected$.next(this.folder);
   }
 
 }

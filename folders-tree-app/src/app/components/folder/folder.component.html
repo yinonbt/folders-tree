@@ -1,5 +1,5 @@
 <p
-  [ngClass]="{ selected: selectedFolder && selectedFolder?.id == folder.id }"
+  [ngClass]="{ selected: (folderSelected$ | async)?.id == folder.id }"
   (click)="onClick($event)"
 >
   {{ folder.name }}
