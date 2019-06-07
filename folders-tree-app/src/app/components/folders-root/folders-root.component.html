@@ -12,4 +12,5 @@
     [placeholder]="'New Folder Name'"
   />
   <button type="submit" [disabled]="foldersFormGroup.invalid">Add</button>
+  <button [disabled]="!(folderSelected$ | async)" (click)="deleteFolder()">Delete</button>
 </form>

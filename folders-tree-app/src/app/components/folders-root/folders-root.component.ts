@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class FoldersRootComponent implements OnInit {
   folderList$: Observable<Folder[]>;
+  folderSelected$: Observable<Folder>;
 
   foldersFormGroup = this.formBuilder.group({
     formControlFolderName: [null, Validators.required]
@@ -21,6 +22,7 @@ export class FoldersRootComponent implements OnInit {
     private folderService: FolderService
   ) {
     this.folderList$ = this.folderService.folderList$;
+    this.folderSelected$ = this.folderService.folderSelected$
   }
 
   ngOnInit() {}
@@ -30,6 +32,10 @@ export class FoldersRootComponent implements OnInit {
       .value;
     this.folderService.addFolder(newFolderName);
     this.foldersFormGroup.reset();
+  }
+
+  deleteFolder() {
+    this.folderService.deleteFolder();
   }
 
   clearSelection() {

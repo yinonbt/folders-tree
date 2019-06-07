@@ -1,9 +1,8 @@
-<p
-  [ngClass]="{ selected: isSelected }"
-  (click)="onClick($event)"
->
-  {{ folder.name }} {{isSelected}}
+<p [ngClass]="{ selected: isSelected }" (click)="onClick($event)">
+  {{ folder.name }} {{ isSelected }}
 </p>
 <div *ngIf="isOpen" style="margin-left: 20px">
-  <app-folder *ngFor="let f of folder.folders" [folder]="f"></app-folder>
+  <ng-container *ngFor="let f of folder.folders">
+    <app-folder *ngIf="!f.isDeleted" [folder]="f"></app-folder>
+  </ng-container>
 </div>

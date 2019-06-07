@@ -1,6 +1,6 @@
 <div>
   <p *ngFor="let folder of folderList">
-    <app-folder
+    <app-folder *ngIf="!folder.isDeleted"
       [folder]="folder"
     ></app-folder>
   </p>
