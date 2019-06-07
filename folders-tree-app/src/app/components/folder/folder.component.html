@@ -1,9 +1,9 @@
 <p
-  [ngClass]="{ selected: (folderSelected$ | async)?.id == folder.id }"
+  [ngClass]="{ selected: isSelected }"
   (click)="onClick($event)"
 >
-  {{ folder.name }}
+  {{ folder.name }} {{isSelected}}
 </p>
-<div *ngIf="(folderSelected$ | async)?.id == folder.id && folder.folders.length > 0">
+<div *ngIf="isOpen" style="margin-left: 20px">
   <app-folder *ngFor="let f of folder.folders" [folder]="f"></app-folder>
 </div>
