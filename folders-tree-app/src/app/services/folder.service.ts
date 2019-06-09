@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { Folder } from "../interfaces/folder";
+import { FoldersApiService } from "./folders-api.service";
 
 @Injectable({
   providedIn: "root"
@@ -11,7 +12,12 @@ export class FolderService {
 
   newFolderId = 0;
 
-  constructor() {}
+  constructor(private foldersApiService: FoldersApiService) {
+    foldersApiService.folders$.subscribe(folders => {
+      console.log("folders came from service: ", folders);
+      this.folderList$.next(folders);
+    });
+  }
 
   addFolder(folderName: string) {
     this.newFolderId++;
@@ -38,6 +44,7 @@ export class FolderService {
       return;
     }
     folder.isDeleted = true;
+    this.folderSelected$.next(null);
   }
 
   findParent(parentId: number, folders: Folder[]): Folder {
@@ -48,5 +55,13 @@ export class FolderService {
     for (let folder of folders) {
       return this.findParent(parentId, folder.folders);
     }
+  }
+
+  getAll() {
+    this.foldersApiService.getAll();
+  }
+
+  saveAll() {
+    this.foldersApiService.saveAll(this.folderList$.value);
   }
 }

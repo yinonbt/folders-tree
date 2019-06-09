@@ -1,0 +1,70 @@
+{
+  "folders": [
+    [
+      {
+        "id": 1,
+        "name": "1",
+        "folders": [],
+        "isDeleted": false
+      },
+      {
+        "id": 2,
+        "name": "2",
+        "folders": [
+          {
+            "id": 4,
+            "name": "22",
+            "folders": [],
+            "isDeleted": false
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": 3,
+        "name": "3",
+        "folders": [],
+        "isDeleted": false
+      }
+    ],
+    [
+      {
+        "id": 1,
+        "name": "1",
+        "folders": [],
+        "isDeleted": false
+      },
+      {
+        "id": 2,
+        "name": "2",
+        "folders": [
+          {
+            "id": 4,
+            "name": "22",
+            "folders": [],
+            "isDeleted": false
+          },
+          {
+            "id": 1,
+            "name": "223",
+            "folders": [],
+            "isDeleted": false
+          },
+          {
+            "id": 2,
+            "name": "224",
+            "folders": [],
+            "isDeleted": false
+          }
+        ],
+        "isDeleted": false
+      },
+      {
+        "id": 3,
+        "name": "3",
+        "folders": [],
+        "isDeleted": false
+      }
+    ]
+  ]
+}

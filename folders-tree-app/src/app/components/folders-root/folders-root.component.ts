@@ -25,7 +25,9 @@ export class FoldersRootComponent implements OnInit {
     this.folderSelected$ = this.folderService.folderSelected$
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.folderService.getAll();
+  }
 
   addFolder() {
     const newFolderName = this.foldersFormGroup.get('formControlFolderName')
@@ -41,5 +43,9 @@ export class FoldersRootComponent implements OnInit {
   clearSelection() {
     console.log('clearSelection');
     this.folderService.folderSelected$.next(null);
+  }
+
+  saveAll() {
+    this.folderService.saveAll();
   }
 }

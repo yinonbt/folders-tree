@@ -2,15 +2,24 @@
   <app-folder-list [folderList]="folderList$ | async"> </app-folder-list>
 </div>
 <form [formGroup]="foldersFormGroup" (ngSubmit)="addFolder()">
-  <label for="inputFolderName">
-    Folder Name:
-  </label>
-  <input
-    id="inputFolderName"
-    type="text"
-    formControlName="formControlFolderName"
-    [placeholder]="'New Folder Name'"
-  />
-  <button type="submit" [disabled]="foldersFormGroup.invalid">Add</button>
-  <button [disabled]="!(folderSelected$ | async)" (click)="deleteFolder()">Delete</button>
+  <div class="folders-control">
+    <div>
+      <label for="inputFolderName">
+        Folder Name:
+      </label>
+      <input
+        id="inputFolderName"
+        type="text"
+        formControlName="formControlFolderName"
+        [placeholder]="'New Folder Name'"
+      />
+    </div>
+    <button type="submit" [disabled]="foldersFormGroup.invalid">Add</button>
+  </div>
+  <div class="folders-control">
+    <button [disabled]="!(folderSelected$ | async)" (click)="deleteFolder()">
+      Delete Selected Folder
+    </button>
+    <button (click)="saveAll()">Save All</button>
+  </div>
 </form>

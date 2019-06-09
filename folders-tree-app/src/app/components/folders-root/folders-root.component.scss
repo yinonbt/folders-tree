@@ -7,3 +7,19 @@
   border-color: magenta;
   border-style: solid;
 }
+.folders-control {
+  width: 50%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    input {
+      margin-left: 10px;
+    }
+  }
+}
